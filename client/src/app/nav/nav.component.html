@@ -1,21 +1,24 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Pizzeria</a>
-    <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="currentUser$ | async">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item" (click)="logout()">
-        <a class="nav-link" href="#">Logout</a>
-      </li>
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active"
+      >Pizzeria</a
+    >
+    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      <ng-container *ngIf="currentUser$ | async">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            routerLink="/orders"
+            routerLinkActive="active"
+            >Orders</a
+          >
+        </li>
+      </ng-container>
     </ul>
 
-    <div class="dropdown" *ngIf="currentUser$ | async" dropdown>
+    <div class="dropdown" *ngIf="currentUser$ | async as user" dropdown>
       <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle
-        >Welcome user</a
+        >Welcome {{ user.username | titlecase }}</a
       >
       <div class="dropdown-menu" *dropdownMenu>
         <a class="dropdown-item">Edit Profile</a>
