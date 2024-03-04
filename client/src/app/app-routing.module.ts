@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
 import { OrderDetailComponent } from './orders/order-detail/order-detail.component';
 import { authGuard } from './guards/auth.guard';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,8 +18,10 @@ const routes: Routes = [
       { path: 'orders/:id', component: OrderDetailComponent },
     ],
   },
-
-  { path: '**', component: HomeComponent, pathMatch: 'full' },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: 'server-error', component: ServerErrorComponent },
+  { path: '', component: HomeComponent },
+  { path: '**', component: NotFoundComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
