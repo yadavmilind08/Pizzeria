@@ -1,0 +1,52 @@
+.pizza-builder .the-pan {
+  margin: 0 auto 3rem;
+  width: 275px;
+  height: 275px;
+  background-image: url(https://smartmouthfoods.com/wp-content/themes/smartmouth/src/img/pan.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &.small {
+    width: 200px;
+    height: 200px;
+  }
+
+  &.medium {
+    width: 275px;
+    height: 275px;
+  }
+
+  &.large {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+.pizza-builder .the-pan .sauce,
+.pizza-builder .the-pan .cheese,
+.pizza-builder .the-pan .topping {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pizza-builder .the-pan .sauce h3,
+.pizza-builder .the-pan .cheese h3,
+.pizza-builder .the-pan .topping h3 {
+  display: none;
+}

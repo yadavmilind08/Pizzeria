@@ -1,0 +1,106 @@
+<div class="pizza-builder">
+  <div class="the-pan" [ngClass]="getPizzaSize()">
+    <div class="sauces">
+      <div
+        class="sauce"
+        id="sauce-0"
+        style="
+          background-image: url(https://smartmouthfoods.com/wp-content/uploads/2019/12/sauce-1.png);
+        "
+        [ngStyle]="{
+          display: shouldDisplay('marinara') ? 'block' : 'none'
+        }"
+      >
+        <h3>Marinara</h3>
+      </div>
+      <div
+        class="sauce"
+        id="sauce-1"
+        style="
+          background-image: url(https://smartmouthfoods.com/wp-content/uploads/2019/12/alfredo.png);
+        "
+        [ngStyle]="{
+          display: shouldDisplay('ranch') ? 'block' : 'none'
+        }"
+      >
+        <h3>Ranch</h3>
+      </div>
+    </div>
+    <div class="cheeses">
+      <div
+        class="cheese"
+        id="cheese-0"
+        style="
+          background-image: url(https://smartmouthfoods.com/wp-content/uploads/2019/12/cheese1.png);
+        "
+        [ngStyle]="{
+          display: shouldDisplay('mozzarella') ? 'block' : 'none'
+        }"
+      >
+        <h3>Mozzarella</h3>
+      </div>
+      <div
+        class="cheese"
+        id="cheese-1"
+        style="
+          background-image: url(https://smartmouthfoods.com/wp-content/uploads/2019/12/extra-cheese.png);
+        "
+        [ngStyle]="{
+          display: shouldDisplay('extra mozzarella') ? 'block' : 'none'
+        }"
+      >
+        <h3>Extra Mozzarella</h3>
+      </div>
+    </div>
+    <div class="toppings">
+      <div
+        class="topping"
+        id="topping-0"
+        style="
+          background-image: url(https://smartmouthfoods.com/wp-content/uploads/2019/12/pepperoni-2.png);
+        "
+        [ngStyle]="{
+          display: shouldDisplay('pepperoni') ? 'block' : 'none'
+        }"
+      >
+        <h3>Pepperoni</h3>
+      </div>
+      <div
+        class="topping"
+        id="topping-1"
+        style="
+          background-image: url(https://smartmouthfoods.com/wp-content/uploads/2019/12/sausage.png);
+        "
+        [ngStyle]="{
+          display: shouldDisplay('italian sausage') ? 'block' : 'none'
+        }"
+      >
+        <h3>Italian Sausage</h3>
+      </div>
+      <div
+        class="topping"
+        id="topping-2"
+        style="
+          background-image: url(https://smartmouthfoods.com/wp-content/uploads/2019/12/pineapple.png);
+        "
+        [ngStyle]="{
+          display: shouldDisplay('pineapple') ? 'block' : 'none'
+        }"
+      >
+        <h3>Pineapple</h3>
+      </div>
+      <div
+        class="topping"
+        id="topping-3"
+        style="
+          background-image: url(https://smartmouthfoods.com/wp-content/uploads/2019/12/mushrooms.png);
+        "
+        [ngStyle]="{
+          display: shouldDisplay('mushrooms') ? 'block' : 'none'
+        }"
+      >
+        <h3>Mushrooms</h3>
+      </div>
+    </div>
+  </div>
+</div>

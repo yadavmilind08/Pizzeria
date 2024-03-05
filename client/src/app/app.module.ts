@@ -16,6 +16,9 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { MenuComponent } from './pizza/menu/menu.component';
+import { PizzaBuilderComponent } from './pizza/pizza-builder/pizza-builder.component';
+import { PizzaItemComponent } from './pizza/pizza-item/pizza-item.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     OrderDetailComponent,
     NotFoundComponent,
     ServerErrorComponent,
+    MenuComponent,
+    PizzaBuilderComponent,
+    PizzaItemComponent,
   ],
   imports: [
     BrowserModule,

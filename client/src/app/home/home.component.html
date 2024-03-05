@@ -1,13 +1,25 @@
 <div class="container mt-5">
   <div *ngIf="!registerMode" style="text-align: center">
     <h1>Create your pizza</h1>
-    <p class="lead">Sign up to crate pizza</p>
-    <div class="text-center">
-      <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">
-        Register
-      </button>
-      <button class="btn btn-primary btn-info btn-lg">Learn more</button>
-    </div>
+    <ng-container *ngIf="!(currentUser$ | async)">
+      <p class="lead">Sign up to create pizza</p>
+      <div class="text-center">
+        <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">
+          Register
+        </button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="currentUser$ | async">
+      <p class="lead">Navigate to pizza builder</p>
+      <div class="text-center">
+        <button
+          (click)="navigateToPizzaBuilder()"
+          class="btn btn-primary btn-lg me-2"
+        >
+          Go ahead
+        </button>
+      </div>
+    </ng-container>
   </div>
 
   <div *ngIf="registerMode" class="container">

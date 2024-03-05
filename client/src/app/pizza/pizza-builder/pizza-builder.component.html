@@ -1,0 +1,103 @@
+<div class="container my-5">
+  <div class="row">
+    <h1>Build Your Pizza</h1>
+    <p class="lead">Use the pizza builder below to create your own pizza.</p>
+  </div>
+  <div class="row mt-5 pizza-builder">
+    <div class="col">
+      <div class="section">
+        <h2>Pizza Size</h2>
+        <div class="row">
+          <div class="col-4" *ngFor="let size of sizes">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="size"
+                id="size"
+                (change)="updateSelectedIngredients(size, $event)"
+              />
+              <label class="form-check-label" for="size">
+                {{ size.name }} (${{ size.price }})
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Choose Sauce</h2>
+        <div class="row">
+          <div class="col-4" *ngFor="let sauce of sauces">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="sauce"
+                id="sauce"
+                (change)="updateSelectedIngredients(sauce, $event)"
+              />
+              <label class="form-check-label" for="sauce">
+                {{ sauce.name }} (${{ sauce.price }})
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Choose Cheese</h2>
+        <div class="row">
+          <div class="col-4" *ngFor="let cheese of cheeses">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="cheese"
+                id="cheese"
+                (change)="updateSelectedIngredients(cheese, $event)"
+              />
+              <label class="form-check-label" for="cheese">
+                {{ cheese.name }} (${{ cheese.price }})
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Add Toppings</h2>
+        <div class="row">
+          <div class="col-4" *ngFor="let topping of toppings">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="topping"
+                id="topping"
+                (change)="updateSelectedIngredients(topping, $event)"
+              />
+              <label class="form-check-label" for="topping">
+                {{ topping.name }} (${{ topping.price }})
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <app-pizza-item
+        [selectedIngredients]="selectedIngredients"
+      ></app-pizza-item>
+      <div class="d-flex align-items-center justify-content-center">
+        <h2 class="me-4">Your Total: ${{ calculateTotalPrice() }}</h2>
+        <button
+          class="btn btn-primary btn-lg me-2"
+          [disabled]="selectedIngredients?.length === 0"
+        >
+          Place Order
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

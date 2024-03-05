@@ -6,6 +6,8 @@ import { OrderDetailComponent } from './orders/order-detail/order-detail.compone
 import { authGuard } from './guards/auth.guard';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { MenuComponent } from './pizza/menu/menu.component';
+import { PizzaBuilderComponent } from './pizza/pizza-builder/pizza-builder.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [authGuard],
     children: [
+      { path: 'menu', component: MenuComponent },
+      { path: 'pizza-builder', component: PizzaBuilderComponent },
       { path: 'orders', component: OrderListComponent },
       { path: 'orders/:id', component: OrderDetailComponent },
     ],
