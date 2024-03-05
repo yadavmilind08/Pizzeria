@@ -1,1 +1,18 @@
-<p>order-list works!</p>
+<div class="container">
+  <div class="mb-4">
+    <h1>Your past orders</h1>
+  </div>
+  <div class="row">
+    <div class="col-4" *ngFor="let order of orderList">
+      <div class="card py-2">
+        <div class="card-body">
+          <h5 class="card-title mb-2">
+            Order date: {{ order.orderDate | date }}
+          </h5>
+          <h5 class="card-title mb-2">Quantity: {{ order.pizzas?.length }}</h5>
+          <h5 class="card-title mb-2">Total amount: {{ order.totalAmount }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
