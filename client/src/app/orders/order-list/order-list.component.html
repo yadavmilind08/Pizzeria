@@ -7,10 +7,15 @@
       <div class="card py-2">
         <div class="card-body">
           <h5 class="card-title mb-2">
-            Order date: {{ order.orderDate | date }}
+            Order date: {{ order.created | date }}
           </h5>
-          <h5 class="card-title mb-2">Quantity: {{ order.pizzas?.length }}</h5>
-          <h5 class="card-title mb-2">Total amount: {{ order.totalAmount }}</h5>
+          <h5 class="card-title mb-2">Total amount: {{ order.amount }}</h5>
+          <h5>Order detail:</h5>
+          <div class="mx-4">
+            <h6 *ngFor="let pizza of order.pizzas">
+              {{ pizza.name }} - {{ pizza.quantity }}
+            </h6>
+          </div>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContex))]
-    partial class DataContexModelSnapshot : ModelSnapshot
+    [Migration("20240305190736_ExtendedEntityIngredients")]
+    partial class ExtendedEntityIngredients
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
@@ -53,8 +56,8 @@ namespace API.Data.Migrations
                     b.Property<int>("PizzaId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("REAL");
+                    b.Property<int>("Price")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Type")
                         .HasColumnType("TEXT");
@@ -71,9 +74,6 @@ namespace API.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
-
-                    b.Property<double>("Amount")
-                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
@@ -98,9 +98,6 @@ namespace API.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("OrderId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
