@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { availablePizzas } from 'src/app/constants/pizza';
 import { CreateOrder } from 'src/app/models/order';
@@ -17,7 +18,8 @@ export class MenuComponent {
 
   constructor(
     private orderService: OrderService,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private router: Router
   ) {}
 
   onAdd(pizza: Pizza) {
@@ -70,6 +72,7 @@ export class MenuComponent {
         if (res) {
           this.selectedPizzas = [];
           this.toaster.success('Order created successfully');
+          this.router.navigateByUrl('/orders');
         }
       },
       error: () => {
