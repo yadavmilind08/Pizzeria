@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import {
+  pizzaCheeses,
+  pizzaSauces,
+  pizzaSizes,
+  pizzaToppings,
+} from 'src/app/constants/pizza';
 import { Ingredient } from 'src/app/models/ingredient';
 import { CreateOrder } from 'src/app/models/order';
 import { OrderService } from 'src/app/services/order.service';
@@ -11,25 +17,10 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./pizza-builder.component.scss'],
 })
 export class PizzaBuilderComponent {
-  sizes: Ingredient[] = [
-    { name: 'Small', price: 5.0, type: 'size' },
-    { name: 'Medium', price: 7.5, type: 'size' },
-    { name: 'Large', price: 10.0, type: 'size' },
-  ];
-  sauces: Ingredient[] = [
-    { name: 'Marinara', price: 0.5, type: 'sauce' },
-    { name: 'Ranch', price: 1.5, type: 'sauce' },
-  ];
-  cheeses: Ingredient[] = [
-    { name: 'Mozzarella', price: 0.5, type: 'cheese' },
-    { name: 'Extra Mozzarella', price: 1.5, type: 'cheese' },
-  ];
-  toppings: Ingredient[] = [
-    { name: 'Pepperoni', price: 0.75, type: 'topping' },
-    { name: 'Italian Sausage', price: 0.5, type: 'topping' },
-    { name: 'Pineapple', price: 1.0, type: 'topping' },
-    { name: 'Mushrooms', price: 0.5, type: 'topping' },
-  ];
+  sizes: Ingredient[] = [...pizzaSizes];
+  sauces: Ingredient[] = [...pizzaSauces];
+  cheeses: Ingredient[] = [...pizzaCheeses];
+  toppings: Ingredient[] = [...pizzaToppings];
   selectedIngredients: Ingredient[] = [];
   loading: boolean = false;
 

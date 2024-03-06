@@ -4,16 +4,6 @@ import { AccountService } from '../services/account.service';
 import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs';
 
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class AuthGuard implements CanActivate {
-//   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-
-//     const accountService = inject(AccountService);
-//     return true;
-//   }
-// }
 export const authGuard: CanActivateFn = (route, state) => {
   const accountService = inject(AccountService);
   const toastr = inject(ToastrService);

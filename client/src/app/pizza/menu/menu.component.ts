@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { availablePizzas } from 'src/app/constants/pizza';
 import { CreateOrder } from 'src/app/models/order';
 import { Pizza } from 'src/app/models/pizza';
 import { OrderService } from 'src/app/services/order.service';
@@ -10,35 +11,7 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
-  pizzaList: Pizza[] = [
-    {
-      id: 1,
-      name: 'Margherita',
-      quantity: 0,
-      ingredients: [
-        { name: 'Medium', price: 7.5, type: 'size' },
-        { name: 'Marinara', price: 0.5, type: 'sauce' },
-        { name: 'Extra Mozzarella', price: 1.5, type: 'cheese' },
-        { name: 'Pepperoni', price: 0.75, type: 'topping' },
-        { name: 'Mushrooms', price: 0.5, type: 'topping' },
-      ],
-    },
-    {
-      id: 2,
-      name: 'Hawaiian',
-      quantity: 0,
-      ingredients: [
-        { name: 'Medium', price: 7.5, type: 'size' },
-        { name: 'Ranch', price: 1.5, type: 'sauce' },
-        { name: 'Mozzarella', price: 0.5, type: 'cheese' },
-        { name: 'Pepperoni', price: 0.75, type: 'topping' },
-        { name: 'Italian Sausage', price: 0.5, type: 'topping' },
-        { name: 'Pineapple', price: 1.0, type: 'topping' },
-        { name: 'Mushrooms', price: 0.5, type: 'topping' },
-      ],
-    },
-  ];
-
+  pizzaList: Pizza[] = [...availablePizzas];
   selectedPizzas: Pizza[] = [];
   loading: boolean = false;
 
