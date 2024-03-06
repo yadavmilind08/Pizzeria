@@ -3,7 +3,8 @@
     <h1>Your past orders</h1>
   </div>
   <div class="row">
-    <div class="col-4" *ngFor="let order of orderList">
+    <p *ngIf="orderList.length === 0">There are no past orders</p>
+    <div class="col-4 gy-4" *ngFor="let order of orderList">
       <div class="card py-2">
         <div class="card-body">
           <h5 class="card-title mb-2">

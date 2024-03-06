@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Ingredient } from 'src/app/models/ingredient';
+import { CreateOrder } from 'src/app/models/order';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-pizza-builder',
@@ -27,6 +31,13 @@ export class PizzaBuilderComponent {
     { name: 'Mushrooms', price: 0.5, type: 'topping' },
   ];
   selectedIngredients: Ingredient[] = [];
+  loading: boolean = false;
+
+  constructor(
+    private orderService: OrderService,
+    private toaster: ToastrService,
+    private router: Router
+  ) {}
 
   updateSelectedIngredients(ingredient: Ingredient, event: any) {
     const { type, checked } = event.target;
@@ -62,5 +73,35 @@ export class PizzaBuilderComponent {
       (acc, ingredient) => acc + ingredient.price,
       0
     );
+  }
+
+  onPlaceOrder() {
+    const order: CreateOrder = {
+      amount: this.calculateTotalPrice(),
+      pizzas: [
+        {
+          name: this.selectedIngredients.reduce(
+            (acc, ing) => acc + ing.name,
+            ''
+          ),
+          quantity: 1,
+          ingredients: this.selectedIngredients,
+        },
+      ],
+    };
+    this.loading = true;
+    this.orderService.createOrder(order).subscribe({
+      next: (res) => {
+        this.loading = false;
+        if (res) {
+          this.selectedIngredients = [];
+          this.toaster.success('Order created successfully');
+          this.router.navigateByUrl('/orders');
+        }
+      },
+      error: () => {
+        this.loading = false;
+      },
+    });
   }
 }

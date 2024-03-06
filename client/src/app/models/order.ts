@@ -6,3 +6,8 @@ export interface Order {
   created: string;
   pizzas: Pizza[];
 }
+
+export interface CreateOrder {
+  amount: number;
+  pizzas: Pizza[];
+}
