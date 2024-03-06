@@ -19,6 +19,6 @@ export class OrderService {
   }
 
   createOrder(order: CreateOrder) {
-    return this.http.post<CreateOrder[]>(this.baseUrl + `order`, order);
+    return this.http.post<boolean>(this.baseUrl + `order`, order);
   }
 }
