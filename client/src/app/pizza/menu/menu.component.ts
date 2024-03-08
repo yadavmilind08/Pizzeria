@@ -60,6 +60,12 @@ export class MenuComponent {
     );
   }
 
+  calcutePrice(name: string) {
+    return this.pizzaList
+      .find((x) => x.name === name)
+      ?.ingredients.reduce((acc, item) => acc + item.price, 0);
+  }
+
   onPlaceOrder() {
     const order: CreateOrder = {
       amount: this.calculateTotalPrice(),

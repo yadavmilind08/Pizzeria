@@ -28,6 +28,7 @@
         ></app-pizza-item>
         <div class="card-body">
           <h5 class="card-title mb-4">{{ pizza.name }}</h5>
+          <h6 class="price">Price: {{ calcutePrice(pizza.name) }}</h6>
           <button class="btn btn-primary" (click)="onAdd(pizza)">Add</button>
           <span class="mx-2">{{ calculateQuantity(pizza.name) }}</span>
           <button class="btn btn-danger" (click)="onRemove(pizza)">
